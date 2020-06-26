@@ -14,8 +14,8 @@ produces:
 paths:
   /hello:
     get:
-      tags: Greet User
-      operationId: notes.operations.get_notes
+      tags: [Greet User]
+      operationId: endpoints.user.greetings.greet
       summary: Says hello <name>
       description: Greets the user whose name is supplied. If no name, greets world.
       produces:
@@ -41,14 +41,14 @@ paths:
 definitions:
   Greeting:
     type: string
-#    items:
-#      type: object
-#      properties:
-#        id:
-#          type: integer
-#        datetime:
-#          type: string
-#        user:
-#          type: string
-#        content:
-#          type: string
+    # items:
+    #   type: object
+    #   properties:
+    #     id:
+    #       type: integer
+    #     datetime:
+    #       type: string
+    #     user:
+    #       type: string
+    #     content:
+    #       type: string
