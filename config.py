@@ -12,4 +12,4 @@ app.config['SECRET_KEY'] = secrets.token_hex(16)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 # initialize objects
-ma = Marshmallow(app)
+# ma = Marshmallow(app)
