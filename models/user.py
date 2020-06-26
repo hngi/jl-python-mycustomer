@@ -1,9 +1,9 @@
 import datetime
 
-import mongoengine as db
+from config import db
 
 
-class User(db.DynamicDocument):
+class User(db.Document):
     phone_number = db.StringField(required=True, unique=True)
     first_name = db.StringField(required=True)
     last_name = db.StringField(required=True)
