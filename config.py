@@ -13,12 +13,12 @@ app = connex_app.app
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
+# mongodb database config
+app.config["MONGODB_SETTINGS"] = {
+    "host": "mongodb://austino:hngi7task4@cluster0-shard-00-00-qht2p.mongodb.net:27017,cluster0-shard-00-01-qht2p.mongodb.net:27017,cluster0-shard-00-02-qht2p.mongodb.net:27017/MyCustomer?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
+    "connect": False
+}
+
 # initialize objects
 db = MongoEngine(app)
 # ma = Marshmallow(app)
-
-# mongodb database config
-app.config["MONGODB_SETTINGS"] = {
-    "host": "mongodb+srv://austino:hngi7task4@cluster0-qht2p.mongodb.net/<MyCustomer>?retryWrites=true&w=majority",
-    "connect": False
-}
