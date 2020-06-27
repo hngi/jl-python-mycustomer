@@ -17,7 +17,7 @@ If you have picked an issue and are ready to contribute some code to resolve the
 - Change into the directory of the cloned repository i.e `cd jl-python-mycustomer` then do the following before starting to work on your issue.
 
   ```bash
-  git remote add upstream https://github.com/hngi/https://github.com/hngi/jl-python-mycustomer.git
+  git remote add upstream https://github.com/hngi/jl-python-mycustomer.git
   ```
 
   ```bash
