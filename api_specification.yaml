@@ -37,10 +37,42 @@ paths:
         404:
           description: User does not exist
 
+  /user/all:
+    get:
+      tags: [List User]
+      operationId: endpoints.user.list.get
+      summary: Return list of users
+      description: Return a list of all users in the database.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Retrieved User List successfully
+          schema:
+            $ref: '#/definitions/List'
+        401:
+          description: Authentication failed
+        440:
+          description: Session expired, login again
+
 
 definitions:
   Greeting:
     type: string
+    # items:
+    #   type: object
+    #   properties:
+    #     id:
+    #       type: integer
+    #     datetime:
+    #       type: string
+    #     user:
+    #       type: string
+    #     content:
+    #       type: string
+
+  List:
+    type: array
     # items:
     #   type: object
     #   properties:
