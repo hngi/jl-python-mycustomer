@@ -14,7 +14,7 @@ class Customer(db.Document):
         store reference ID
     name : str
         the name of the customer
-    phone_number: int
+    phone_number: str
         the phone number of the customer
     created_at: datetime str
         time when customer is created
