@@ -1,5 +1,3 @@
-import datetime
-
 from config import db
 
 
