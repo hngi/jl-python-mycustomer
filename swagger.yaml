@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   title: MyCustomer API
-  description: MyCustomer app does stuff
+  description: MyCustomer API is the backend supporting the MyCustomer service
   version: 1.0.0
 
 # host: "dev.customerpay.me"
