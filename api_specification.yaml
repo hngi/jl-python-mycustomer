@@ -37,7 +37,7 @@ paths:
         404:
           description: User does not exist
 
-  /user:
+  /user/all:
     get:
       tags: [List User]
       operationId: endpoints.user.list.get
