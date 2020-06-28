@@ -9,7 +9,7 @@ class Store(db.Document):
     tagline = db.StringField(required=True)
     shop_address = db.StringField(required=True)
     email = db.StringField(unique=True)
-    reg_date = db.DateTimeField(default=datetime.datetime.utcnow)
+    created = db.DateTimeField(default=datetime.datetime.utcnow)
 
     def __str__(self):
         return "<Store: {}>".format(self.store_name)
