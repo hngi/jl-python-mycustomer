@@ -838,7 +838,6 @@ definitions:
       status:
         type: "integer"
         format: "int64"
-
   Transaction:
     type: "object"
     required:
@@ -867,7 +866,6 @@ definitions:
         type: "string"
       transaction_role:
         type: "string"
-
   Customer:
     type: "object"
     required:
@@ -882,7 +880,6 @@ definitions:
         example: "Mikah"
       phone:
         type: "string"
-
   Store:
     type: "object"
     required:
@@ -900,53 +897,62 @@ definitions:
         type: "string"
       tagline:
         type: "string"
-
   User:
     type: "object"
     required:
-    - "name"
-    - "lastname"
-    - "phone"
+    - "first_name"
+    - "last_name"
+    - "phone_number"
+    - "email"
+    - "password"
     properties:
       id:
         type: "integer"
         format: "int64"
-      name:
+      first_name:
         type: "string"
         example: "Mikah"
-      lastname:
+      last_name:
         type: "string"
         example: "Mikah"
-      phone:
+      phone_number:
+        type: "number"
+      password:
         type: "string"
       email:
         type: "string"
         example: "mikah@domain.com"
-
   UserSignUp:
     type: "object"
     required:
-    - "name"
-    - "lastname"
-    - "phone"
-    - "required"
+    - "first_name"
+    - "last_name"
+    - "phone_number"
+    - "email"
+    - "password"
     properties:
       id:
         type: "integer"
         format: "int64"
-      name:
+      first_name:
         type: "string"
         example: "Mikah"
-      lastname:
+      last_name:
         type: "string"
         example: "Mikah"
-      phone:
+      phone_number:
         type: "string"
       password:
         type: "string"
       email:
         type: "string"
         example: "mikah@domain.com"
+      is_active:
+        type: "boolean"
+      api_token:
+        type: "string"
+      user_role:
+        type: "string"
   Complaint:
     type: "object"
     required:
@@ -959,11 +965,6 @@ definitions:
         type: "string"
       status:
         type: "string"
-
-
-externalDocs:
-  description: "Find out more about dev.customerpay.me"
-  url: "https://dev.customerpay.me"
 
 externalDocs:
   description: "Find out more about dev.customerpay.me"
