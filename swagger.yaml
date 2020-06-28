@@ -904,30 +904,24 @@ definitions:
   User:
     type: "object"
     required:
-    - "first_name"
-    - "last_name"
-    - "phone_number"
-    - "email"
-    - "is_active"
-    - "password"
+    - "name"
+    - "lastname"
+    - "phone"
     properties:
-      is_active:
+      id:
         type: "integer"
-        example: 0
-      first_name:
+        format: "int64"
+      name:
         type: "string"
         example: "Mikah"
-      last_name:
+      lastname:
         type: "string"
         example: "Mikah"
-      phone_number:
+      phone:
         type: "string"
       email:
         type: "string"
         example: "mikah@domain.com"
-      password:
-        type: "string"
-        example: "P@ssw0rd"
 
   UserSignUp:
     type: "object"
@@ -966,6 +960,10 @@ definitions:
       status:
         type: "string"
 
+
+externalDocs:
+  description: "Find out more about dev.customerpay.me"
+  url: "https://dev.customerpay.me"
 
 externalDocs:
   description: "Find out more about dev.customerpay.me"
