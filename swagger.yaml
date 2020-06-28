@@ -1,0 +1,965 @@
+swagger: "2.0"
+info:
+  title: MyCustomer API
+  description: MyCustomer API is the backend supporting the MyCustomer service
+  version: 1.0.0
+
+# host: "dev.customerpay.me"
+basePath: /
+
+tags:
+  - name: "Notification"
+    description: "Everything about Notification"
+  - name: "Transaction"
+    description: "Everything about Transaction"
+  - name: "Customer"
+    description: "Everything about Customer"
+  - name: "Store"
+    description: "Everything about Store"
+  - name: "User"
+    description: "Everything about User"
+  - name: "Authentication"
+    description: "Everything about Authentication"
+  - name: "Complaint"
+    description: "Everything about Complaint"
+#
+#schemes:
+#  - "https"
+#
+
+paths:
+#  /call/{customerId}:
+#    post:
+#      tags:
+#        - Notification
+#      summary: ""
+#      description: ""
+#      operationId: "call"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "customerId"
+#        in: "path"
+#        description: "Customer id to call"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: ""
+#        required: true
+#        schema:
+#          type: "object"
+#          required:
+#          - "number"
+#          properties:
+#            number:
+#              type: "string"
+#              example: "+23480000000"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#        "405":
+#          description: "Invalid input"
+#
+#  /reminder/sms/{customerId}:
+#    post:
+#      tags:
+#      - "Notification"
+#      summary: "Add a new reminder sms to the customer"
+#      description: ""
+#      operationId: "addReminderSMS"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "customerId"
+#        in: "path"
+#        description: "Customer id to delete"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: "Reminder object that needs to be sent"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/Reminder"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Reminder"
+#        "405":
+#          description: "Invalid input"
+#  /reminder/email/{customerId}:
+#    post:
+#      tags:
+#      - "Notification"
+#      summary: "dd a new reminder email to the customer"
+#      description: ""
+#      operationId: "addReminderEmail"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "customerId"
+#        in: "path"
+#        description: "Customer id to delete"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: "Reminder object that needs to be sent"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/Reminder"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Reminder"
+#        "405":
+#          description: "Invalid input"
+#  /transaction/new:
+#    post:
+#      tags:
+#      - "Transaction"
+#      summary: "Add a new transation to the customer"
+#      description: ""
+#      operationId: "addTransaction"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - in: "body"
+#        name: "body"
+#        description: "Transacion object that needs to be added to the customer"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/Transaction"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Transaction"
+#        "405":
+#          description: "Invalid input"
+#  /transaction/all:
+#    get:
+#      tags:
+#      - "Transaction"
+#      summary: "Get all transactions of a store"
+#      description: ""
+#      operationId: "getTransactions"
+#      produces:
+#      - "application/json"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#           type: "array"
+#           items:
+#            $ref: "#/definitions/Transaction"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Transaction not found"
+#  /transaction/update/{transactionId}:
+#    put:
+#      tags:
+#      - "Transaction"
+#      summary: "Update an existing transaction"
+#      description: ""
+#      operationId: "updateTransaction"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "transactionId"
+#        in: "path"
+#        description: "Customer id to delete"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: "Transaction object that needs to be updated to the store"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/Transaction"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Transaction"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Transaction not found"
+#        "405":
+#          description: "Validation exception"
+#  /transaction/delete/{transactionId}:
+#    delete:
+#      tags:
+#      - "Transaction"
+#      summary: "Deletes a transaction"
+#      description: ""
+#      operationId: "deleteTransaction"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "transactionId"
+#        in: "path"
+#        description: "Transaction id to delete"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Transaction not found"
+#  /customer/new:
+#    post:
+#      tags:
+#      - "Customer"
+#      summary: "Add a new customer to the store"
+#      description: ""
+#      operationId: "addCustomer"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - in: "body"
+#        name: "body"
+#        description: "Customer object that needs to be added to the store"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/Customer"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Customer"
+#        "405":
+#          description: "Invalid input"
+#  /customer/{customerId}:
+#    get:
+#      tags:
+#      - "Customer"
+#      summary: "Find customer by ID"
+#      description: "Returns a single customer"
+#      operationId: "getCustomerById"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "customerId"
+#        in: "path"
+#        description: "ID of customer to return"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Customer"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Customer not found"
+#  /customer/update{customerId}:
+#    put:
+#      tags:
+#      - "Customer"
+#      summary: "Update an existing customer"
+#      description: ""
+#      operationId: "updateCustomer"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "customerId"
+#        in: "path"
+#        description: "ID of customer to return"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: "Customer object that needs to be updated to the store"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/Customer"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Customer"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Customer not found"
+#        "405":
+#          description: "Validation exception"
+#  /customer/delete/{customerId}:
+#    delete:
+#      tags:
+#      - "Customer"
+#      summary: "Deletes a customer"
+#      description: ""
+#      operationId: "deleteCustomer"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "customerId"
+#        in: "path"
+#        description: "Customer id to delete"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Customer not found"
+#  /customer/all:
+#    get:
+#      tags:
+#      - "Customer"
+#      summary: "List of store's customers"
+#      description: ""
+#      operationId: "getCustomers"
+#      produces:
+#      - "application/json"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#           type: "array"
+#           items:
+#            $ref: "#/definitions/Customer"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Customer not found"
+#  /store/new:
+#    post:
+#      tags:
+#      - "Store"
+#      summary: "Add a new store to the user"
+#      description: "User object that needs to be created"
+#      operationId: "addStore"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - in: "body"
+#        name: "body"
+#        description: "Store object"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/Store"
+#      responses:
+#        "200":
+#          description: "successful operation"
+#          schema:
+#            $ref: "#/definitions/Store"
+#        "405":
+#          description: "Invalid input"
+#  /store/{storeId}:
+#    get:
+#      tags:
+#      - "Store"
+#      summary: "Find store by ID"
+#      description: "Returns a single store"
+#      operationId: "getStoreById"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "storeId"
+#        in: "path"
+#        description: "ID of store to return"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Store"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Store not found"
+#  /store/update/{storeId}:
+#    put:
+#      tags:
+#      - "Store"
+#      summary: "Update an existing Store"
+#      description: ""
+#      operationId: "updateStore"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "storeId"
+#        in: "path"
+#        description: "ID of store to return"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: "Store object that needs to be updated"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/Store"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Store"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Store not found"
+#        "405":
+#          description: "Validation exception"
+
+  /store/delete/{storeId}:
+    delete:
+      tags:
+      - "Store"
+      summary: "Deletes a store"
+      description: ""
+      operationId: "endpoints.store.delete_store.delete"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "storeId"
+        in: "path"
+        description: "Store id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Store not found"
+
+#  /store/all:
+#    get:
+#      tags:
+#      - "Store"
+#      summary: "List of stores"
+#      description: ""
+#      operationId: "getStores"
+#      produces:
+#      - "application/json"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#           type: "array"
+#           items:
+#            $ref: "#/definitions/Store"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Store not found"
+#  /user/new:
+#    post:
+#      tags:
+#      - "User"
+#      summary: "Add a new user to app"
+#      description: "User object that needs to be created"
+#      operationId: "addUser"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - in: "body"
+#        name: "body"
+#        description: "User object"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/User"
+#      responses:
+#        "200":
+#          description: "successful operation"
+#          schema:
+#            $ref: "#/definitions/User"
+#        "405":
+#          description: "Invalid input"
+#  /user/{userId}:
+#    get:
+#      tags:
+#      - "User"
+#      summary: "Find user by ID"
+#      description: "Returns a single user"
+#      operationId: "getUserById"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "userId"
+#        in: "path"
+#        description: "ID of user to return"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/User"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "User not found"
+#  /user/update/{userId}:
+#    put:
+#      tags:
+#      - "User"
+#      summary: "Update an existing User"
+#      description: "Updates a user by id, with key-value pairs"
+#      operationId: "updateUser"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "userId"
+#        in: "path"
+#        description: "ID of user to be updated"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: "User object that needs to be updated"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/User"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/User"
+#        "404":
+#          description: "User not found"
+#        "500":
+#          description: "Server Error"
+#  /user/delete/{userId}:
+#    delete:
+#      tags:
+#      - "User"
+#      summary: "Deletes a User"
+#      description: ""
+#      operationId: "deleteUser"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "userId"
+#        in: "path"
+#        description: "User id to delete"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Customer not found"
+
+  /user/all:
+    get:
+      tags:
+      - "User"
+      summary: "List of users"
+      description: "Return a list of all users in the database"
+      operationId: endpoints.user.list.get
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+           type: "array"
+           items:
+            $ref: "#/definitions/User"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Customer not found"
+
+#  /register/user:
+#    post:
+#      tags:
+#      - "Authentication"
+#      summary: "Sign up in the app"
+#      description: ""
+#      operationId: "signUp"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - in: "body"
+#        name: "body"
+#        description: "UserSignUp object that needs to be registered"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/UserSignUp"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#        "405":
+#          description: "Invalid input"
+#  /auth/verify:
+#    post:
+#      tags:
+#      - "Authentication"
+#      summary: "Verify token"
+#      description: ""
+#      operationId: "authVerify"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - in: "body"
+#        name: "body"
+#        description: "UserSignUp object that needs to be registered"
+#        required: true
+#        schema:
+#          type: "object"
+#          properties:
+#            id:
+#              type: "string"
+#            token:
+#              type: "string"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            type: "object"
+#            properties:
+#              status:
+#                type: "string"
+#              message:
+#                type: "string"
+#        "405":
+#          description: "Invalid input"
+#  /auth/verify-phone:
+#    post:
+#      tags:
+#      - "Authentication"
+#      summary: "Verify phone"
+#      description: ""
+#      operationId: "authVerifyPhone"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - in: "body"
+#        name: "body"
+#        description: "UserSignUp object that needs to be registered"
+#        required: true
+#        schema:
+#          type: "object"
+#          properties:
+#            phone:
+#              type: "string"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            type: "object"
+#            properties:
+#              status:
+#                type: "string"
+#              message:
+#                type: "string"
+#        "401":
+#          description: "Invalid input"
+#  /complaint/new:
+#    post:
+#      tags:
+#      - "Complaint"
+#      summary: "Add a new complaint to the complaint"
+#      description: ""
+#      operationId: "addComplaint"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - in: "body"
+#        name: "body"
+#        description: "Complaint object that needs to be added"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/Complaint"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Complaint"
+#        "405":
+#          description: "Invalid input"
+#  /complaint/update/{complaintId}:
+#    put:
+#      tags:
+#      - "Complaint"
+#      summary: "Update an existing complaint"
+#      description: ""
+#      operationId: "updateComplaint"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "complaintId"
+#        in: "path"
+#        description: "ID of complaint to be updated"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: "Complaint object that needs to be updated"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/Complaint"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/Complaint"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "User not found"
+#        "405":
+#          description: "Validation exception"
+#  /complaint/delete/{complaintId}:
+#    delete:
+#      tags:
+#      - "Complaint"
+#      summary: "Deletes a Complaint"
+#      description: ""
+#      operationId: "deleteComplaint"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "complaintId"
+#        in: "path"
+#        description: "Complaint id to delete"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Customer not found"
+#  /complaint/all:
+#    get:
+#      tags:
+#      - "Complaint"
+#      summary: "List of complaints"
+#      description: ""
+#      operationId: "getComplaint"
+#      produces:
+#      - "application/json"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#           type: "array"
+#           items:
+#            $ref: "#/definitions/User"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Complaints not found"
+
+
+definitions:
+  Reminder:
+    type: "object"
+    required:
+    - "customerId"
+    - "type"
+    - "message"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      customerId:
+        type: "integer"
+        format: "int64"
+      type:
+        type: "integer"
+        format: "int64"
+        description: "It's use to identify if it's a email, sms, WhatsApp or other"
+      message:
+        type: "string"
+        description: "It can be used to body in an email"
+      subject:
+        type: "string"
+      status:
+        type: "integer"
+        format: "int64"
+
+  Transaction:
+    type: "object"
+    required:
+    - "amount"
+    - "interest"
+    - "total_amount"
+    - "description"
+    - "customer_phone_number"
+    - "store_name"
+    - "transaction_name"
+    - "transaction_role"
+    properties:
+      amount:
+        type: "number"
+      interest:
+        type: "number"
+      total_amount:
+        type: "number"
+      description:
+        type: "string"
+      customer_phone_number:
+        type: "number"
+      store_name:
+        type: "string"
+      transaction_name:
+        type: "string"
+      transaction_role:
+        type: "string"
+
+  Customer:
+    type: "object"
+    required:
+    - "name"
+    - "phone"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        example: "Mikah"
+      phone:
+        type: "string"
+
+  Store:
+    type: "object"
+    required:
+    - "name"
+    - "phone"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      phone:
+        type: "string"
+      address:
+        type: "string"
+      tagline:
+        type: "string"
+
+  User:
+    type: "object"
+    required:
+    - "name"
+    - "lastname"
+    - "phone"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        example: "Mikah"
+      lastname:
+        type: "string"
+        example: "Mikah"
+      phone:
+        type: "string"
+      email:
+        type: "string"
+        example: "mikah@domain.com"
+
+  UserSignUp:
+    type: "object"
+    required:
+    - "name"
+    - "lastname"
+    - "phone"
+    - "required"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        example: "Mikah"
+      lastname:
+        type: "string"
+        example: "Mikah"
+      phone:
+        type: "string"
+      password:
+        type: "string"
+      email:
+        type: "string"
+        example: "mikah@domain.com"
+  Complaint:
+    type: "object"
+    required:
+    - "message"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      message:
+        type: "string"
+      status:
+        type: "string"
+
+
+externalDocs:
+  description: "Find out more about dev.customerpay.me"
+  url: "https://dev.customerpay.me"

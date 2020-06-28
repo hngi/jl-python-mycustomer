@@ -17,7 +17,7 @@ If you have picked an issue and are ready to contribute some code to resolve the
 - Change into the directory of the cloned repository i.e `cd jl-python-mycustomer` then do the following before starting to work on your issue.
 
   ```bash
-  git remote add upstream https://github.com/hngi/https://github.com/hngi/jl-python-mycustomer.git
+  git remote add upstream https://github.com/hngi/jl-python-mycustomer.git
   ```
 
   ```bash
@@ -29,7 +29,10 @@ If you have picked an issue and are ready to contribute some code to resolve the
   ```bash
   git checkout -b <my-chosen-feature>
   ```
-
+- Install the required packages by
+  ```bash
+  pip install -r requirements.txt
+  ```
 - Do your work.
 
 - Commit your changes. Ensure that your commit messages properly references the issue by following this style [guide](https://udacity.github.io/git-styleguide/)
