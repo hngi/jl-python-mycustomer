@@ -8,7 +8,7 @@ class User(db.Document):
     first_name = db.StringField(required=True)
     last_name = db.StringField(required=True)
     email = db.StringField(required=True, unique=True)
-    is_active = db.BooleanField(default=0)
+    is_active = db.BooleanField(default=False)
     password = db.StringField(required=True)
     api_token = db.StringField()
     user_role = db.StringField(default="store_admin")
