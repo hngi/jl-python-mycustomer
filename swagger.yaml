@@ -442,29 +442,31 @@ paths:
 #          description: "Store not found"
 #        "405":
 #          description: "Validation exception"
-#  /store/delete/{storeId}:
-#    delete:
-#      tags:
-#      - "Store"
-#      summary: "Deletes a store"
-#      description: ""
-#      operationId: "deleteStore"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - name: "storeId"
-#        in: "path"
-#        description: "Store id to delete"
-#        required: true
-#        type: "integer"
-#        format: "int64"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Store not found"
+
+  /store/delete/{storeId}:
+    delete:
+      tags:
+      - "Store"
+      summary: "Deletes a store"
+      description: ""
+      operationId: "endpoints.store.delete_store.delete"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "storeId"
+        in: "path"
+        description: "Store id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Store not found"
+
 #  /store/all:
 #    get:
 #      tags:
