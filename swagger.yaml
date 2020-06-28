@@ -22,12 +22,24 @@ tags:
     description: "Everything about Authentication"
   - name: "Complaint"
     description: "Everything about Complaint"
+  - name: "Redirect"
+    description: "Redirect user"
 #
 #schemes:
 #  - "https"
 #
 
 paths:
+  /:
+    get:
+      tags:
+       - "Redirect"
+      summary: "Redirect"
+      description: "Redirect user to swagger ui"
+      operationId: endpoints.redirect.get
+      responses:
+        "302":
+           description: "Found"
 #  /call/{customerId}:
 #    post:
 #      tags:
