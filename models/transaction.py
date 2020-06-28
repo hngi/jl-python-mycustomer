@@ -1,7 +1,7 @@
 import datetime
 from config import db
-from flask_mongoengine import signals
-from models import user, user_store, customer
+from mongoengine import signals
+from models import user, user_store, customer,store
 
 class Transaction(db.Document):
     """
@@ -41,7 +41,8 @@ class Transaction(db.Document):
     transaction_name= db.StringField(required=True)
     transaction_role = db.StringField(required=True)
     user_ref_id = db.ReferenceField(user.User, dbref=True, required=True)
-    store_ref_id = db.ReferenceField(user_store.Store, dbref=True, required=True)
+    #store_ref_id = db.ReferenceField(user_store.Store, dbref=True, required=True)
+    store_ref_id = db.ReferenceField(store.Store, dbref=True, required=True)
     created_at = db.DateTimeField(default=datetime.datetime.utcnow)
     updated_at = db.DateTimeField(default=datetime.datetime.utcnow)
 
