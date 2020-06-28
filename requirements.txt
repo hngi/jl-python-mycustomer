@@ -34,3 +34,5 @@ urllib3==1.25.9
 Werkzeug==1.0.1
 WTForms==2.3.1
 zipp==3.1.0
+dnspython==1.16.0
+blinker==1.4
