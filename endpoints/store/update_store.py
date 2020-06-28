@@ -1,3 +1,4 @@
+from flask import jsonify
 from models.store import Store
 from models.user_store import UserStore
 
@@ -9,5 +10,5 @@ def update(storeId):
         session.add(user_store)
         session.commit()
     except Exception as e:
-        return jsonify({'error_msg':str(e)})
-    return jsonify({'status': 'OK'), 200
+        return jsonify ({'error_msg':str(e)})
+    return jsonify ({"status": "OK"}), 200
