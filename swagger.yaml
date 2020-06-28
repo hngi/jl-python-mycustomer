@@ -382,8 +382,8 @@ paths:
 #            $ref: "#/definitions/Store"
 #        "405":
 #          description: "Invalid input"
- /store/{storeId}:
-   get:
+  /store/{storeId}:
+    get:
      tags:
      - "Store"
      summary: "Find store by ID"
@@ -598,26 +598,26 @@ paths:
 #        "404":
 #          description: "Customer not found"
 
-  # /user/all:
-  #   get:
-  #     tags:
-  #     - "User"
-  #     summary: "List of users"
-  #     description: "Return a list of all users in the database"
-  #     operationId: endpoints.user.list.get
-  #     produces:
-  #     - "application/json"
-  #     responses:
-  #       "200":
-  #         description: "Successful operation"
-  #         schema:
-  #          type: "array"
-  #          items:
-  #           $ref: "#/definitions/User"
-  #       "400":
-  #         description: "Invalid ID supplied"
-  #       "404":
-  #         description: "Customer not found"
+  /user/all:
+    get:
+      tags:
+      - "User"
+      summary: "List of users"
+      description: "Return a list of all users in the database"
+      operationId: endpoints.user.list.get
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+           type: "array"
+           items:
+            $ref: "#/definitions/User"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Customer not found"
 
 #  /register/user:
 #    post:
