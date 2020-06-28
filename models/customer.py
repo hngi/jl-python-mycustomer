@@ -1,7 +1,7 @@
 import datetime
 from config import db
-from flask_mongoengine import signals
-from models import user_store
+from mongoengine import signals
+from models import user_store,store
 
 class Customer(db.Document):
     """
@@ -27,7 +27,7 @@ class Customer(db.Document):
         handles time attribute(updated_at) ONLY when customer detail is modified
     """
 
-    store_ref_id = db.ReferenceField(user_store.Store, dbref=True, required=True)
+    store_ref_id = db.ReferenceField(store.Store, dbref=True, required=True)
     name = db.StringField(required=True)
     phone_number = db.StringField(required=True)
     created_at = db.DateTimeField(default=datetime.datetime.utcnow)
