@@ -491,21 +491,21 @@ paths:
   /user/new:
     post:
       tags:
-      - "User"
+        - "User"
       summary: "Add a new user to app"
       description: "User object that needs to be created"
       operationId: endpoints.user.create.post
       consumes:
-      - "application/json"
+        - "application/json"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: "body"
-        name: "body"
-        description: "User object"
-        required: true
-        schema:
-          $ref: "#/definitions/User"
+        - in: "body"
+          name: "body"
+          description: "User object"
+          required: true
+          schema:
+            $ref: "#/definitions/User"
       responses:
         "200":
           description: "successful operation"
@@ -513,6 +513,9 @@ paths:
             $ref: "#/definitions/User"
         "405":
           description: "Invalid input"
+#      security:
+#        - api_key: []
+
 #  /user/{userId}:
 #    get:
 #      tags:
@@ -916,7 +919,7 @@ definitions:
         type: "string"
         example: "Mikah"
       phone_number:
-        type: "number"
+        type: "string"
       password:
         type: "string"
       email:
