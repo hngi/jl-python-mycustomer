@@ -485,31 +485,31 @@ paths:
 #          description: "Invalid ID supplied"
 #        "404":
 #          description: "Store not found"
-#  /user/new:
-#    post:
-#      tags:
-#      - "User"
-#      summary: "Add a new user to app"
-#      description: "User object that needs to be created"
-#      operationId: "addUser"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - in: "body"
-#        name: "body"
-#        description: "User object"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/User"
-#      responses:
-#        "200":
-#          description: "successful operation"
-#          schema:
-#            $ref: "#/definitions/User"
-#        "405":
-#          description: "Invalid input"
+  /user/new:
+    post:
+      tags:
+      - "User"
+      summary: "Add a new user to app"
+      description: "User object that needs to be created"
+      operationId: endpoints.user.create.post
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "User object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        "405":
+          description: "Invalid input"
 #  /user/{userId}:
 #    get:
 #      tags:
@@ -901,24 +901,30 @@ definitions:
   User:
     type: "object"
     required:
-    - "name"
-    - "lastname"
-    - "phone"
+    - "first_name"
+    - "last_name"
+    - "phone_number"
+    - "email"
+    - "is_active"
+    - "password"
     properties:
-      id:
+      is_active:
         type: "integer"
-        format: "int64"
-      name:
+        example: 0
+      first_name:
         type: "string"
         example: "Mikah"
-      lastname:
+      last_name:
         type: "string"
         example: "Mikah"
-      phone:
+      phone_number:
         type: "string"
       email:
         type: "string"
         example: "mikah@domain.com"
+      password:
+        type: "string"
+        example: "P@ssw0rd"
 
   UserSignUp:
     type: "object"
