@@ -38,4 +38,15 @@ Add any other context or screenshots about the feature request here.
   
   where **"update"** is the function, **"store"** is the file (store.py) and **"endpoints"** is the directory containing that file
   
+  ### OR
+  
+  if you haven't worked with swagger specifications before and are confused by this, 
+
+- open the issue you want to work on
+
+- comment on the issue with the name of the function, the name of the script you'll open, and the full path relative to the base directory that it'll live
+
+- when I approve/assign the issue to you, I'll comment  with 
+            the input your function must take and
+            the expected output
   
