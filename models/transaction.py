@@ -1,5 +1,7 @@
 import datetime
 from config import db
+from flask_mongoengine import signals
+from models import user, user_store, customer
 
 class Transaction(db.Document):
     """
@@ -8,27 +10,51 @@ class Transaction(db.Document):
 
     Attributes
     ----------
-    date : str
-        a datetime string for the time of transaction
-    _from : str
-        the name of the person/businees/store who initiated the transaction
-    _to : str
-        the name of the person/business/store recieving the payment
-    description: str
+    customer_ref_id : reference
+        a reference field to the customer
+    amount : float
+        the transaction amount
+    interest : float
+        the interest applied to the amount
+    total_amount: float
+        the total_amount
+    description : str
         the description of the transaction
-    payment_method : str
-        the method of payment e.g cash, card (default Cash)
-    isCleared: str
-        boolean for whether the transaction was successful or not (default False)
- 
+    transaction_name: str
+        the name of transaction
+    user_ref_id: reference
+        user reference ID
+    store_ref_id: reference
+        store reference ID
+
+    Methods
+    -------
+    pre_save(cls, sender, transaction, *kw)
+        handles time attribute(updated_at) ONLY when transaction is modified
     """
 
-    date = db.DateTimeField(default=datetime.datetime.utcnow)
-    _from = db.StringField(required=True)
-    _to = db.StringField(required=True)
+    customer_ref_id =  db.ReferenceField(customer.Customer, required=True, dbref=True)
+    amount = db.FloatField(required=True)
+    interest = db.FloatField(required=True)
+    total_amount = db.FloatField(required=True)
     description = db.StringField(required=True)
-    payment_method = db.StringField(default="Cash")
-    isCleared = db.Boolean(default=False)
+    transaction_name= db.StringField(required=True)
+    transaction_role = db.StringField(required=True)
+    user_ref_id = db.ReferenceField(user.User, dbref=True, required=True)
+    store_ref_id = db.ReferenceField(user_store.Store, dbref=True, required=True)
+    created_at = db.DateTimeField(default=datetime.datetime.utcnow)
+    updated_at = db.DateTimeField(default=datetime.datetime.utcnow)
+
+
+    @classmethod
+    def pre_save(cls, sender, transaction, **kwargs):
+        transaction.updated_at = datetime.datetime.utcnow()
 
     def __str__(self):
-        return "<Transaction: {} to {}\n{}>".format(self._from, self._to, self.isCleared)
+        return "<Transaction Details: {}-{} by {} at {}>".format(self.transaction_name, self.transaction_role, self.user_ref_id, self.created_at)
+
+    
+
+signals.pre_save.connect(Transaction.pre_save, sender=Transaction)
+
+    

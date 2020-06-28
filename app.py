@@ -1,9 +1,7 @@
 import os.path
-from config import connex_app
-from config import base_dir
+from config import base_dir, connex_app, app
 
-connex_app.add_api(os.path.join(base_dir, 'api_specification.yaml'))
+connex_app.add_api(os.path.join(base_dir, 'swagger.yaml'))
 
 if __name__ == '__main__':
-    connex_app.run(debug=True, port=5207)
-
+    app.run(debug=True, port=5207)

@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+## Complete this section
+
 **What Functionality / Service / Endpoint would you like to add?**
 A short statement
 
@@ -24,3 +26,30 @@ Please include your slack username here
 
 **Additional context**
 Add any other context or screenshots about the feature request here.
+
+
+
+## If you're working on an endpoint
+
+- search the **"swagger.yaml"** file in the base dir for the enpoint you're working on, example:  /store/update/{storeId}
+
+- then uncomment the section of the file under that endpoint
+
+- now change operationId of that endpoint to the full qualifier for your function,
+
+  example:  **operationId: "updateStore"  ==> operationId: endpoints.store.update** 
+  
+  where **"update"** is the function, **"store"** is the file (store.py) and **"endpoints"** is the directory containing that file
+  
+### OR
+  
+  if you haven't worked with swagger specifications before and are confused by this, 
+
+- open the issue you want to work on
+
+- comment on the issue with the name of the function, the name of the script you'll open, and the full path relative to the base directory that it'll live
+
+- when I approve/assign the issue to you, I'll comment  with 
+            the input your function must take and
+            the expected output
+  
