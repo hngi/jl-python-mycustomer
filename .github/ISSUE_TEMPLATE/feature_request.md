@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-### Complete this section
+## Complete this section
 
 **What Functionality / Service / Endpoint would you like to add?**
 A short statement
@@ -29,7 +29,7 @@ Add any other context or screenshots about the feature request here.
 
 
 
-### If you're working on an endpoint
+## If you're working on an endpoint
 
 - search the **"swagger.yaml"** file in the base dir for the enpoint you're working on, example:  /store/update/{storeId}
 
