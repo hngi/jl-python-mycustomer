@@ -923,7 +923,7 @@ definitions:
         type: "string"
       email:
         type: "string"
-        example: "mikah.d@domain.com"
+        example: "mikah@domain.com"
       password:
         type: "string"
         example: "P@ssw0rd"
