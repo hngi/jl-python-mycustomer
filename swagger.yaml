@@ -151,26 +151,26 @@ paths:
 #            $ref: "#/definitions/Transaction"
 #        "405":
 #          description: "Invalid input"
-#  /transaction/all:
-#    get:
-#      tags:
-#      - "Transaction"
-#      summary: "Get all transactions of a store"
-#      description: ""
-#      operationId: "getTransactions"
-#      produces:
-#      - "application/json"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#           type: "array"
-#           items:
-#            $ref: "#/definitions/Transaction"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Transaction not found"
+  # /transaction/all:
+  #   get:
+  #     tags:
+  #     - "Transaction"
+  #     summary: "Get all transactions of a store"
+  #     description: ""
+  #     operationId: endpoints.
+  #     produces:
+  #     - "application/json"
+  #     responses:
+  #       "200":
+  #         description: "Successful operation"
+  #         schema:
+  #           type: "array"
+  #           items:
+  #           $ref: "#/definitions/Transaction"
+  #       "400":
+  #         description: "Invalid ID supplied"
+  #       "404":
+  #         description: "Transaction not found"
 #  /transaction/update/{transactionId}:
 #    put:
 #      tags:
@@ -923,7 +923,7 @@ definitions:
         type: "string"
       email:
         type: "string"
-        example: "mikah@domain.com"
+        example: "mikah.d@domain.com"
       password:
         type: "string"
         example: "P@ssw0rd"
