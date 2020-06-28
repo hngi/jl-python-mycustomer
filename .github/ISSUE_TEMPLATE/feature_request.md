@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+### Complete this section
+
 **What Functionality / Service / Endpoint would you like to add?**
 A short statement
 
@@ -28,6 +30,7 @@ Add any other context or screenshots about the feature request here.
 
 
 ### If you're working on an endpoint
+
 - search the **"swagger.yaml"** file in the base dir for the enpoint you're working on, example:  /store/update/{storeId}
 
 - then uncomment the section of the file under that endpoint
@@ -38,7 +41,7 @@ Add any other context or screenshots about the feature request here.
   
   where **"update"** is the function, **"store"** is the file (store.py) and **"endpoints"** is the directory containing that file
   
-  ### OR
+### OR
   
   if you haven't worked with swagger specifications before and are confused by this, 
 
