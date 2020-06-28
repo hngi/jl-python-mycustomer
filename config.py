@@ -1,6 +1,7 @@
 import os.path
 import connexion
 from flask_mongoengine import MongoEngine
+from flask_bcrypt import Bcrypt
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
 connex_app = connexion.App(__name__, specification_dir=base_dir)
@@ -16,4 +17,21 @@ app.config["MONGODB_SETTINGS"] = {
 
 # initialize objects#
 db = MongoEngine(app)
+
+
+# For authentication 
+bcrypt = Bcrypt()
+login_manager = LoginManager()
+login_manager.login_view = 'users.login'
+login_manager.login_message_category = 'info'
+
+
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(Config)
+
+    db.init_app(app)
+    bcrypt.init_app(app)
+    login_manager.init_app(app)
+
 

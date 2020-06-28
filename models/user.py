@@ -1,9 +1,14 @@
 import datetime
+from flask_login import UserMixin
+from flask import current_app
+from config import db, login_manager
 
 from config import db
 
 
 class User(db.Document):
+    # adding auth username for auth
+    username = db.Column(db.String(20), unique=True, nullable=False)
     phone_number = db.StringField(required=True, unique=True)
     first_name = db.StringField(required=True)
     last_name = db.StringField(required=True)
