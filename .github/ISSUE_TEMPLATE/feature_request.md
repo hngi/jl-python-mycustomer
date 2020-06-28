@@ -24,3 +24,18 @@ Please include your slack username here
 
 **Additional context**
 Add any other context or screenshots about the feature request here.
+
+
+
+### If you're working on an endpoint
+- search the **"swagger.yaml"** file in the base dir for the enpoint you're working on, example:  /store/update/{storeId}
+
+- then uncomment the section of the file under that endpoint
+
+- now change operationId of that endpoint to the full qualifier for your function,
+
+  example:  **operationId: "updateStore"  ==> operationId: endpoints.store.update** 
+  
+  where **"update"** is the function, **"store"** is the file (store.py) and **"endpoints"** is the directory containing that file
+  
+  
