@@ -6,5 +6,5 @@ def post():
         data = request.get_json()
         new_transaction = Transaction(**data).save()
     except Exception as e:
-        return jsonify({'error_msg':str(e)})
+        return jsonify({'error_msg':str(e)}), 405
     return jsonify({'result': new_transaction}), 201
