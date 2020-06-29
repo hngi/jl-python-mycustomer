@@ -722,31 +722,31 @@ paths:
 #                type: "string"
 #        "401":
 #          description: "Invalid input"
-#  /complaint/new:
-#    post:
-#      tags:
-#      - "Complaint"
-#      summary: "Add a new complaint to the complaint"
-#      description: ""
-#      operationId: "addComplaint"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - in: "body"
-#        name: "body"
-#        description: "Complaint object that needs to be added"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/Complaint"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/Complaint"
-#        "405":
-#          description: "Invalid input"
+  /complaint/new:
+    post:
+      tags:
+      - "Complaint"
+      summary: "Add a new complaint to the complaint"
+      description: ""
+      operationId: "endpoints.complaint.create.post"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Complaint object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Complaint"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Complaint"
+        "405":
+          description: "Invalid input"
 #  /complaint/update/{complaintId}:
 #    put:
 #      tags:
