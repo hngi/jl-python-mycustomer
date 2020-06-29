@@ -138,31 +138,32 @@ paths:
 #            $ref: "#/definitions/Reminder"
 #        "405":
 #          description: "Invalid input"
-#  /transaction/new:
-#    post:
-#      tags:
-#      - "Transaction"
-#      summary: "Add a new transation to the customer"
-#      description: ""
-#      operationId: "addTransaction"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - in: "body"
-#        name: "body"
-#        description: "Transacion object that needs to be added to the customer"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/Transaction"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/Transaction"
-#        "405":
-#          description: "Invalid input"
+
+  /transaction/new:
+   post:
+     tags:
+     - "Transaction"
+     summary: "Add a new transation to the customer"
+     description: ""
+     operationId: endpoints.transaction.create_transaction.post
+     consumes:
+     - "application/json"
+     produces:
+     - "application/json"
+     parameters:
+     - in: "body"
+       name: "body"
+       description: "Transacion object that needs to be added to the customer"
+       required: true
+       schema:
+         $ref: "#/definitions/Transaction"
+     responses:
+       "201":
+         description: "Successful operation"
+         schema:
+           $ref: "#/definitions/Transaction"
+       "405":
+         description: "Invalid input"
   /transaction/all:
     get:
       tags:
