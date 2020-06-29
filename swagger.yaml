@@ -425,7 +425,7 @@ paths:
       - "Store"
       summary: "Update an existing Store"
       description: ""
-      operationId: "updateStore"
+      operationId: "endpoints.store.update_store.updateStore"
       consumes:
       - "application/json"
       produces:
