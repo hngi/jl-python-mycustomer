@@ -972,6 +972,7 @@ definitions:
     type: "object"
     required:
     - "message"
+    - "store_ref_code"
     properties:
       id:
         type: "integer"
@@ -980,6 +981,8 @@ definitions:
         type: "string"
       status:
         type: "string"
+      store_ref_code:
+        type: "object"
 
 externalDocs:
   description: "Find out more about dev.customerpay.me"
