@@ -369,31 +369,31 @@ paths:
 #          description: "Invalid ID supplied"
 #        "404":
 #          description: "Customer not found"
-#  /store/new:
-#    post:
-#      tags:
-#      - "Store"
-#      summary: "Add a new store to the user"
-#      description: "User object that needs to be created"
-#      operationId: "endpoints.store.get.addStore"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - in: "body"
-#        name: "body"
-#        description: "Store object"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/Store"
-#      responses:
-#        "200":
-#          description: "successful operation"
-#          schema:
-#            $ref: "#/definitions/Store"
-#        "405":
-#          description: "Invalid input"
+  /store/new:
+   post:
+     tags:
+     - "Store"
+     summary: "Add a new store to the user"
+     description: "Store object that needs to be created"
+     operationId: "endpoints.store.create.post"
+     consumes:
+     - "application/json"
+     produces:
+     - "application/json"
+     parameters:
+     - in: "body"
+       name: "body"
+       description: "Store object"
+       required: true
+       schema:
+         $ref: "#/definitions/Store"
+     responses:
+       "200":
+         description: "successful operation"
+         schema:
+           $ref: "#/definitions/Store"
+       "405":
+         description: "Invalid input"
   /store/{storeId}:
     get:
      tags:
