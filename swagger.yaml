@@ -479,26 +479,26 @@ paths:
         "404":
           description: "Store not found"
 
-#  /store/all:
-#    get:
-#      tags:
-#      - "Store"
-#      summary: "List of stores"
-#      description: ""
-#      operationId: "getStores"
-#      produces:
-#      - "application/json"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#           type: "array"
-#           items:
-#            $ref: "#/definitions/Store"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Store not found"
+  /store/all:
+    get:
+      tags:
+      - "Store"
+      summary: "List of stores"
+      description: ""
+      operationId: endpoints.store.listall.get
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+           type: "array"
+           items:
+            $ref: "#/definitions/Store"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Store not found"
 
   /user/new:
     post:
