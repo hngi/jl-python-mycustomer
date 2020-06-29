@@ -375,7 +375,7 @@ paths:
      tags:
      - "Store"
      summary: "Add a new store to the user"
-     description: "Store object that needs to be created"
+     description: "Store object that needs to be created. Add an 'email' field and ignore the 'id' field"
      operationId: "endpoints.store.create.post"
      consumes:
      - "application/json"
@@ -383,7 +383,7 @@ paths:
      - "application/json"
      parameters:
      - in: "body"
-       name: "body"
+       name: "data"
        description: "Store object"
        required: true
        schema:
@@ -409,8 +409,8 @@ paths:
        in: "path"
        description: "ID of store to return"
        required: true
-       type: "integer"
-       format: "int64"
+       type: "string"
+#       format: "int64"
      responses:
        "200":
          description: "Successful operation"
@@ -470,8 +470,8 @@ paths:
         in: "path"
         description: "Store id to delete"
         required: true
-        type: "integer"
-        format: "int64"
+        type: "string"
+#        format: "int64"
       responses:
         "200":
           description: "Successful operation"
