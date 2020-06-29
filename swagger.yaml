@@ -820,7 +820,7 @@ paths:
           schema:
             type: "array"
             items:
-            $ref: "#/definitions/User"
+            $ref: "#/definitions/Complaint"
         "400":
           description: "Invalid ID supplied"
         "404":
