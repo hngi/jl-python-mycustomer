@@ -35,8 +35,8 @@ class Customer(db.Document):
 
 
     @classmethod
-    def pre_save(cls, sender, customer, **kwargs):
-        customer.updated_at = datetime.datetime.utcnow()
+    def pre_save(cls, sender, document, **kwargs):
+        document.updated_at = datetime.datetime.utcnow()
 
     def __str__(self):
         return "<Customer: {}; {} at {}>".format(self.name, self.store_ref_id, self.created_at)
