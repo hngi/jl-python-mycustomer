@@ -899,17 +899,19 @@ definitions:
   Store:
     type: "object"
     required:
-    - "name"
-    - "phone"
+    - "store_name"
+    - "Phone_number"
+    - "tagline"
+    - "shop_address"
     properties:
       id:
         type: "integer"
         format: "int64"
-      name:
+      store_name:
         type: "string"
-      phone:
+      Phone_number:
         type: "string"
-      address:
+      shop_address:
         type: "string"
       tagline:
         type: "string"
