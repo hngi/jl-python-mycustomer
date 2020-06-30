@@ -55,3 +55,26 @@ If you have picked an issue and are ready to contribute some code to resolve the
   ```
 
 See you in Stage 5
+
+### Running the Unittest Scripts
+- Change into the 'test' directory in the 'jl-python-mycustomer' parent directory by carrying the following commands in the command line.
+  ```cmd
+  cd test\
+  ```
+  - Now to run the Unittest scripts for the store endpoints, run the following:
+    
+    ```cmd
+      python -m unittest test_store_endpoint.py
+    ```
+  - Now to run the Unittest scripts for the transaction endpoints, run the following:
+    
+    ```cmd
+      python -m unittest test_transaction_endpoint.py
+    ```
+  - Now to run the Unittest scripts for the user endpoints, run the following:
+    
+    ```cmd
+      python -m unittest test_user_endpoint.py
+    ```
+
+  By the Senior Endpoints Testing Developer
