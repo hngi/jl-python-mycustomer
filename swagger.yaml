@@ -241,31 +241,31 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Transaction not found"
-#  /customer/new:
-#    post:
-#      tags:
-#      - "Customer"
-#      summary: "Add a new customer to the store"
-#      description: ""
-#      operationId: "addCustomer"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - in: "body"
-#        name: "body"
-#        description: "Customer object that needs to be added to the store"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/Customer"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/Customer"
-#        "405":
-#          description: "Invalid input"
+  /customer/new:
+   post:
+     tags:
+     - "Customer"
+     summary: "Add a new customer to the store"
+     description: ""
+     operationId: "endpoints.customer.create.post"
+     consumes:
+     - "application/json"
+     produces:
+     - "application/json"
+     parameters:
+     - in: "body"
+       name: "body"
+       description: "Customer object that needs to be added to the store"
+       required: true
+       schema:
+         $ref: "#/definitions/Customer"
+     responses:
+       "201":
+         description: "Successful operation"
+         schema:
+           $ref: "#/definitions/Customer"
+       "405":
+         description: "Invalid input"
 #  /customer/{customerId}:
 #    get:
 #      tags:
