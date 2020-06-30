@@ -13,8 +13,8 @@ class DebtReminder:
 
 
     @classmethod
-    def pre_save(cls, sender, reminder, **kwargs):
-        reminder.updated_at = datetime.datetime.utcnow()
+    def pre_save(cls, sender, document, **kwargs):
+        document.updated_at = datetime.datetime.utcnow()
 
     def __str__(self):
         return "<Debt Reminder: {}; {} at {}>".format(self.ts_ref_id, self.message, self.expected_pay_date)

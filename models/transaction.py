@@ -48,8 +48,8 @@ class Transaction(db.Document):
 
 
     @classmethod
-    def pre_save(cls, sender, transaction, **kwargs):
-        transaction.updated_at = datetime.datetime.utcnow()
+    def pre_save(cls, sender, document, **kwargs):
+        document.updated_at = datetime.datetime.utcnow()
 
     def __str__(self):
         return "<Transaction Details: {}-{} by {} at {}>".format(self.transaction_name, self.transaction_role, self.user_ref_id, self.created_at)
