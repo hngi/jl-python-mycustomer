@@ -3,7 +3,7 @@ from unittest import TestCase
 import requests
 import json
 
-class Test_For_Store_Endpoints(TestCase):
+class Test_For_Store_Endpoint(TestCase):
 
     def test_store_res(self):
         response = requests.get('http://api-mycustomer-python.herokuapp.com/store/all')
@@ -35,14 +35,14 @@ class Test_For_Store_Endpoints(TestCase):
 
     def test_store_id(self):
 
-        #Ensure wrong ID gives 500 error
+        #Ensures invalid ID gives 500 error
 
         response = requests.get('http://api-mycustomer-python.herokuapp.com/store/1')
         self.assertEqual(response.status_code, 500)
 
     def test_store_new_entry_exist(self):
 
-        #Ensures existed input gives store already exists message
+        #Ensures existed store inputs gives store already exists message
 
         data = {
             'phone': '8888883888',
@@ -55,3 +55,6 @@ class Test_For_Store_Endpoints(TestCase):
         res = response.json()
         self.assertEqual(response.status_code, 403)
         self.assertEqual(res['message'], "Store already exists")
+
+if __name__ == '__main__':
+    unittest.main()
