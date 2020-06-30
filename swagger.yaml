@@ -722,31 +722,31 @@ paths:
 #                type: "string"
 #        "401":
 #          description: "Invalid input"
-#  /complaint/new:
-#    post:
-#      tags:
-#      - "Complaint"
-#      summary: "Add a new complaint to the complaint"
-#      description: ""
-#      operationId: "addComplaint"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - in: "body"
-#        name: "body"
-#        description: "Complaint object that needs to be added"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/Complaint"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/Complaint"
-#        "405":
-#          description: "Invalid input"
+  /complaint/new:
+    post:
+      tags:
+      - "Complaint"
+      summary: "Add a new complaint to the complaint"
+      description: ""
+      operationId: "endpoints.complaint.create.post"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Complaint object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Complaint"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Complaint"
+        "405":
+          description: "Invalid input"
 #  /complaint/update/{complaintId}:
 #    put:
 #      tags:
@@ -805,26 +805,26 @@ paths:
 #          description: "Invalid ID supplied"
 #        "404":
 #          description: "Customer not found"
-#  /complaint/all:
-#    get:
-#      tags:
-#      - "Complaint"
-#      summary: "List of complaints"
-#      description: ""
-#      operationId: "getComplaint"
-#      produces:
-#      - "application/json"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#           type: "array"
-#           items:
-#            $ref: "#/definitions/User"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Complaints not found"
+  /complaint/all:
+    get:
+      tags:
+      - "Complaint"
+      summary: "List of complaints"
+      description: ""
+      operationId: endpoints.complaint.list.get
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+            $ref: "#/definitions/Complaint"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Complaints not found"
 
 
 definitions:
@@ -972,6 +972,7 @@ definitions:
     type: "object"
     required:
     - "message"
+    - "store_ref_code"
     properties:
       id:
         type: "integer"
@@ -980,6 +981,8 @@ definitions:
         type: "string"
       status:
         type: "string"
+      store_ref_code:
+        type: "object"
 
 externalDocs:
   description: "Find out more about dev.customerpay.me"
