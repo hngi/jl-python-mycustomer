@@ -22,12 +22,24 @@ tags:
     description: "Everything about Authentication"
   - name: "Complaint"
     description: "Everything about Complaint"
+  - name: "Redirect"
+    description: "Redirect user"
 #
 #schemes:
 #  - "https"
 #
 
 paths:
+  /:
+    get:
+      tags:
+       - "Redirect"
+      summary: "Redirect"
+      description: "Redirect user to swagger ui"
+      operationId: endpoints.redirect.get
+      responses:
+        "302":
+           description: "Found"
 #  /call/{customerId}:
 #    post:
 #      tags:
@@ -126,31 +138,32 @@ paths:
 #            $ref: "#/definitions/Reminder"
 #        "405":
 #          description: "Invalid input"
-#  /transaction/new:
-#    post:
-#      tags:
-#      - "Transaction"
-#      summary: "Add a new transation to the customer"
-#      description: ""
-#      operationId: "addTransaction"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - in: "body"
-#        name: "body"
-#        description: "Transacion object that needs to be added to the customer"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/Transaction"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/Transaction"
-#        "405":
-#          description: "Invalid input"
+
+  /transaction/new:
+   post:
+     tags:
+     - "Transaction"
+     summary: "Add a new transation to the customer"
+     description: ""
+     operationId: endpoints.transaction.create_transaction.post
+     consumes:
+     - "application/json"
+     produces:
+     - "application/json"
+     parameters:
+     - in: "body"
+       name: "body"
+       description: "Transacion object that needs to be added to the customer"
+       required: true
+       schema:
+         $ref: "#/definitions/Transaction"
+     responses:
+       "201":
+         description: "Successful operation"
+         schema:
+           $ref: "#/definitions/Transaction"
+       "405":
+         description: "Invalid input"
   /transaction/all:
     get:
       tags:
@@ -206,29 +219,28 @@ paths:
 #          description: "Transaction not found"
 #        "405":
 #          description: "Validation exception"
-#  /transaction/delete/{transactionId}:
-#    delete:
-#      tags:
-#      - "Transaction"
-#      summary: "Deletes a transaction"
-#      description: ""
-#      operationId: "deleteTransaction"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - name: "transactionId"
-#        in: "path"
-#        description: "Transaction id to delete"
-#        required: true
-#        type: "integer"
-#        format: "int64"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Transaction not found"
+  /transaction/delete/{transactionId}:
+    delete:
+      tags:
+      - "Transaction"
+      summary: "Deletes a transaction"
+      description: ""
+      operationId: "endpoints.transaction.rm_transaction.rmtran"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "transactionId"
+        in: "path"
+        description: "Transaction id to delete"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Transaction not found"
 #  /customer/new:
 #    post:
 #      tags:
@@ -357,56 +369,56 @@ paths:
 #          description: "Invalid ID supplied"
 #        "404":
 #          description: "Customer not found"
-#  /store/new:
-#    post:
-#      tags:
-#      - "Store"
-#      summary: "Add a new store to the user"
-#      description: "User object that needs to be created"
-#      operationId: "addStore"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - in: "body"
-#        name: "body"
-#        description: "Store object"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/Store"
-#      responses:
-#        "200":
-#          description: "successful operation"
-#          schema:
-#            $ref: "#/definitions/Store"
-#        "405":
-#          description: "Invalid input"
-#  /store/{storeId}:
-#    get:
-#      tags:
-#      - "Store"
-#      summary: "Find store by ID"
-#      description: "Returns a single store"
-#      operationId: "getStoreById"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - name: "storeId"
-#        in: "path"
-#        description: "ID of store to return"
-#        required: true
-#        type: "integer"
-#        format: "int64"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/Store"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Store not found"
+  /store/new:
+   post:
+     tags:
+     - "Store"
+     summary: "Add a new store to the user"
+     description: "Store object that needs to be created. Add an 'email' field and ignore the 'id' field"
+     operationId: "endpoints.store.create.post"
+     consumes:
+     - "application/json"
+     produces:
+     - "application/json"
+     parameters:
+     - in: "body"
+       name: "data"
+       description: "Store object"
+       required: true
+       schema:
+         $ref: "#/definitions/Store"
+     responses:
+       "200":
+         description: "successful operation"
+         schema:
+           $ref: "#/definitions/Store"
+       "405":
+         description: "Invalid input"
+  /store/{storeId}:
+    get:
+     tags:
+     - "Store"
+     summary: "Find store by ID"
+     description: "Returns a single store"
+     operationId: "endpoints.store.get.getStoreById"
+     produces:
+     - "application/json"
+     parameters:
+     - name: "storeId"
+       in: "path"
+       description: "ID of store to return"
+       required: true
+       type: "string"
+#       format: "int64"
+     responses:
+       "200":
+         description: "Successful operation"
+         schema:
+           $ref: "#/definitions/Store"
+       "400":
+         description: "Invalid ID supplied"
+       "404":
+         description: "Store not found"
 #  /store/update/{storeId}:
 #    put:
 #      tags:
@@ -457,8 +469,8 @@ paths:
         in: "path"
         description: "Store id to delete"
         required: true
-        type: "integer"
-        format: "int64"
+        type: "string"
+#        format: "int64"
       responses:
         "200":
           description: "Successful operation"
@@ -467,45 +479,45 @@ paths:
         "404":
           description: "Store not found"
 
-#  /store/all:
-#    get:
-#      tags:
-#      - "Store"
-#      summary: "List of stores"
-#      description: ""
-#      operationId: "getStores"
-#      produces:
-#      - "application/json"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#           type: "array"
-#           items:
-#            $ref: "#/definitions/Store"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Store not found"
+  /store/all:
+    get:
+      tags:
+      - "Store"
+      summary: "List of stores"
+      description: ""
+      operationId: endpoints.store.listall.get
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+           type: "array"
+           items:
+            $ref: "#/definitions/Store"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Store not found"
 
   /user/new:
     post:
       tags:
-      - "User"
+        - "User"
       summary: "Add a new user to app"
       description: "User object that needs to be created"
       operationId: endpoints.user.create.post
       consumes:
-      - "application/json"
+        - "application/json"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: "body"
-        name: "body"
-        description: "User object"
-        required: true
-        schema:
-          $ref: "#/definitions/User"
+        - in: "body"
+          name: "body"
+          description: "User object"
+          required: true
+          schema:
+            $ref: "#/definitions/User"
       responses:
         "200":
           description: "successful operation"
@@ -513,31 +525,34 @@ paths:
             $ref: "#/definitions/User"
         "405":
           description: "Invalid input"
-#  /user/{userId}:
-#    get:
-#      tags:
-#      - "User"
-#      summary: "Find user by ID"
-#      description: "Returns a single user"
-#      operationId: "getUserById"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - name: "userId"
-#        in: "path"
-#        description: "ID of user to return"
-#        required: true
-#        type: "integer"
-#        format: "int64"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/User"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "User not found"
+      #security:
+      #  - api_key: []
+
+  /user/{userId}:
+    get:
+      tags:
+      - "User"
+      summary: "Find user by ID"
+      description: "Returns a single user"
+      operationId: endpoints.user.getuser.getuser
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "ID of user to return"
+        required: true
+        type: "string"
+        #format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "User not found"
 #  /user/update/{userId}:
 #    put:
 #      tags:
@@ -838,7 +853,6 @@ definitions:
       status:
         type: "integer"
         format: "int64"
-
   Transaction:
     type: "object"
     required:
@@ -867,7 +881,6 @@ definitions:
         type: "string"
       transaction_role:
         type: "string"
-
   Customer:
     type: "object"
     required:
@@ -882,7 +895,6 @@ definitions:
         example: "Mikah"
       phone:
         type: "string"
-
   Store:
     type: "object"
     required:
@@ -900,7 +912,6 @@ definitions:
         type: "string"
       tagline:
         type: "string"
-
   User:
     type: "object"
     required:
@@ -908,12 +919,11 @@ definitions:
     - "last_name"
     - "phone_number"
     - "email"
-    - "is_active"
     - "password"
     properties:
-      is_active:
+      id:
         type: "integer"
-        example: 0
+        format: "int64"
       first_name:
         type: "string"
         example: "Mikah"
@@ -922,37 +932,42 @@ definitions:
         example: "Mikah"
       phone_number:
         type: "string"
+      password:
+        type: "string"
       email:
         type: "string"
         example: "mikah@domain.com"
-      password:
-        type: "string"
-        example: "P@ssw0rd"
-
   UserSignUp:
     type: "object"
     required:
-    - "name"
-    - "lastname"
-    - "phone"
-    - "required"
+    - "first_name"
+    - "last_name"
+    - "phone_number"
+    - "email"
+    - "password"
     properties:
       id:
         type: "integer"
         format: "int64"
-      name:
+      first_name:
         type: "string"
         example: "Mikah"
-      lastname:
+      last_name:
         type: "string"
         example: "Mikah"
-      phone:
+      phone_number:
         type: "string"
       password:
         type: "string"
       email:
         type: "string"
         example: "mikah@domain.com"
+      is_active:
+        type: "boolean"
+      api_token:
+        type: "string"
+      user_role:
+        type: "string"
   Complaint:
     type: "object"
     required:
@@ -965,7 +980,6 @@ definitions:
         type: "string"
       status:
         type: "string"
-
 
 externalDocs:
   description: "Find out more about dev.customerpay.me"
