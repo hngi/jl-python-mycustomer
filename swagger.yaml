@@ -184,41 +184,43 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Transaction not found"
-#  /transaction/update/{transactionId}:
-#    put:
-#      tags:
-#      - "Transaction"
-#      summary: "Update an existing transaction"
-#      description: ""
-#      operationId: "updateTransaction"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - name: "transactionId"
-#        in: "path"
-#        description: "Customer id to delete"
-#        required: true
-#        type: "integer"
-#        format: "int64"
-#      - in: "body"
-#        name: "body"
-#        description: "Transaction object that needs to be updated to the store"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/Transaction"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/Transaction"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Transaction not found"
-#        "405":
-#          description: "Validation exception"
+  /transaction/update/{transactionId}:
+    put:
+      tags:
+      - "Transaction"
+      summary: "Update an existing transaction"
+      description: ""
+      operationId: "endpoints.transaction.update_transaction.update"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "transactionId"
+        in: "path"
+        description: "Customer id to delete"
+        required: true
+        type: "string"
+          #format: "int64"
+      - in: "body"
+        name: "body"
+        description: "Transaction object that needs to be updated to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Transaction"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Transaction"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Transaction not found"
+        "405":
+          description: "Validation exception"
+        "403":
+          description: "Missing required field"
   /transaction/delete/{transactionId}:
     delete:
       tags:
