@@ -1,8 +1,10 @@
 from flask import jsonify
 from flask import request
 from models.user import User
+from auth.auth_helpers import token_required
 
 
+@token_required
 def post():
     """
     POST response method for creating user.
