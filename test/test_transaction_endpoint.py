@@ -1,5 +1,5 @@
 from unittest import TestCase
-
+import unittest 
 import requests
 import json
 
@@ -21,6 +21,7 @@ class Test_For_Transaction_Endpoint(TestCase):
     def test_transaction_delete_invalid_ID(self):
 
         #Ensures invalid ID means 400 Error
+        #Invalid here is ID != 24
         
         response = requests.delete('http://api-mycustomer-python.herokuapp.com/transaction/delete/4', headers={'Content-Type': 'application/json'})
         res = response.json()

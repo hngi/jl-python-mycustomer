@@ -1,5 +1,5 @@
 from unittest import TestCase
-
+import unittest
 import requests
 import json
 
@@ -21,24 +21,24 @@ class Test_For_Store_Endpoint(TestCase):
     def test_store_new_valid_entry(self):
 
     	#Ensures valid input means 201
-        #Ensure to change the all value for each key when running this test again for success!!
+        #increment the digit for a new successful test run - testxxxx1 --> testxxxx2 --> and so on
 
         data = {
-            'address': 'strssg', 
-            'name': 'hog',
-            'email': 'strimg', 
-            'phone': '88888',  
-            'tagline': 'stng'
+            'address': 'testaddr2', 
+            'name': 'testname2',
+            'email': 'testemail2', 
+            'phone': 'testphone2',  
+            'tagline': 'testtag2'
         }
         response = requests.post('http://api-mycustomer-python.herokuapp.com/store/new', headers={'Content-Type': 'application/json'}, data=json.dumps(data))
         self.assertEqual(response.status_code, 201)
 
-    def test_store_id(self):
+    def test_store_id_non_existent(self):
 
-        #Ensures invalid ID gives 500 error
+        #Nonexistent ID SHOULD GIVE 404 - UNABLE to find store
 
-        response = requests.get('http://api-mycustomer-python.herokuapp.com/store/1')
-        self.assertEqual(response.status_code, 500)
+        response = requests.get('http://api-mycustomer-python.herokuapp.com/store/5efa3305114a3a878c0fa18x')
+        self.assertEqual(response.status_code, 404)
 
     def test_store_new_entry_exist(self):
 
