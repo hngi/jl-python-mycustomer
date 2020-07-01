@@ -782,29 +782,28 @@ paths:
 #          description: "User not found"
 #        "405":
 #          description: "Validation exception"
-#  /complaint/delete/{complaintId}:
-#    delete:
-#      tags:
-#      - "Complaint"
-#      summary: "Deletes a Complaint"
-#      description: ""
-#      operationId: "deleteComplaint"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - name: "complaintId"
-#        in: "path"
-#        description: "Complaint id to delete"
-#        required: true
-#        type: "integer"
-#        format: "int64"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Customer not found"
+  /complaint/delete/{complaintId}:
+    delete:
+      tags:
+      - "Complaint"
+      summary: "Deletes a Complaint"
+      description: ""
+      operationId: "endpoints.complaint.delete.delete"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "complaintId"
+        in: "path"
+        description: "Complaint id to delete"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Complaint not found"
   /complaint/all:
     get:
       tags:
