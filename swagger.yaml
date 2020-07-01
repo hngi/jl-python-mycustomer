@@ -560,7 +560,7 @@ paths:
       - "User"
       summary: "Update an existing User"
       description: "Updates a user by id, with key-value pairs"
-      operationId: "endpoints.user.update_user.update"
+      operationId: "endpoints.user.userupdate.update"
       consumes:
       - "application/json"
       produces:
