@@ -560,7 +560,7 @@ paths:
       - "User"
       summary: "Update an existing User"
       description: "Updates a user by id, with key-value pairs"
-      operationId: endpoints.user.updateuser.update
+      operationId: "endpoints.user.update_user.update"
       consumes:
       - "application/json"
       produces:
@@ -571,7 +571,7 @@ paths:
         description: "ID of user to be updated"
         required: true
         type: "string"
-        #format: "int64"
+       # format: "int64"
       - in: "body"
         name: "body"
         description: "User object that needs to be updated"
