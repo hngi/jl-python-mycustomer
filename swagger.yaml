@@ -241,56 +241,56 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Transaction not found"
-#  /customer/new:
-#    post:
-#      tags:
-#      - "Customer"
-#      summary: "Add a new customer to the store"
-#      description: ""
-#      operationId: "addCustomer"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - in: "body"
-#        name: "body"
-#        description: "Customer object that needs to be added to the store"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/Customer"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/Customer"
-#        "405":
-#          description: "Invalid input"
-#  /customer/{customerId}:
-#    get:
-#      tags:
-#      - "Customer"
-#      summary: "Find customer by ID"
-#      description: "Returns a single customer"
-#      operationId: "getCustomerById"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - name: "customerId"
-#        in: "path"
-#        description: "ID of customer to return"
-#        required: true
-#        type: "integer"
-#        format: "int64"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/Customer"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Customer not found"
+  /customer/new:
+   post:
+     tags:
+     - "Customer"
+     summary: "Add a new customer to the store"
+     description: ""
+     operationId: "endpoints.customer.create.post"
+     consumes:
+     - "application/json"
+     produces:
+     - "application/json"
+     parameters:
+     - in: "body"
+       name: "body"
+       description: "Customer object that needs to be added to the store"
+       required: true
+       schema:
+         $ref: "#/definitions/Customer"
+     responses:
+       "201":
+         description: "Successful operation"
+         schema:
+           $ref: "#/definitions/Customer"
+       "405":
+         description: "Invalid input"
+  /customer/{customerId}:
+   get:
+     tags:
+     - "Customer"
+     summary: "Find customer by ID"
+     description: "Returns a single customer"
+     operationId: "endpoints.customer.getcustomer.getCustomerByID"
+     produces:
+     - "application/json"
+     parameters:
+     - name: "customerId"
+       in: "path"
+       description: "ID of customer to return"
+       required: true
+       type: "string"
+      #  format: "int64"
+     responses:
+       "200":
+         description: "Successful operation"
+         schema:
+           $ref: "#/definitions/Customer"
+       "400":
+         description: "Invalid ID supplied"
+       "404":
+         description: "Customer not found"
 #  /customer/update{customerId}:
 #    put:
 #      tags:
@@ -349,26 +349,26 @@ paths:
 #          description: "Invalid ID supplied"
 #        "404":
 #          description: "Customer not found"
-#  /customer/all:
-#    get:
-#      tags:
-#      - "Customer"
-#      summary: "List of store's customers"
-#      description: ""
-#      operationId: "getCustomers"
-#      produces:
-#      - "application/json"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#           type: "array"
-#           items:
-#            $ref: "#/definitions/Customer"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Customer not found"
+  /customer/all:
+   get:
+     tags:
+     - "Customer"
+     summary: "List of store's customers"
+     description: ""
+     operationId: "endpoints.customer.getall.getAll"
+     produces:
+     - "application/json"
+     responses:
+       "200":
+         description: "Successful operation"
+         schema:
+          type: "array"
+          items:
+           $ref: "#/definitions/Customer"
+       "400":
+         description: "Invalid ID supplied"
+       "404":
+         description: "Customer not found"
   /store/new:
    post:
      tags:
