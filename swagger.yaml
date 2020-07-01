@@ -554,7 +554,7 @@ paths:
         "404":
           description: "User not found"
           
- /user/update/{userId}:
+  /user/update/{userId}:
     put:
       tags:
       - "User"
