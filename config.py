@@ -1,12 +1,17 @@
 import os.path
 import connexion
 from flask_mongoengine import MongoEngine
+from flask_bcrypt import Bcrypt
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
 connex_app = connexion.App(__name__, specification_dir=base_dir)
 app = connex_app.app
 
+app.config['SECRET_KEY'] = "weAreGoingToChangeThisMyCustomer"  #obviously going to change in prod. deploy 
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+
+bcrypt = Bcrypt(app)
+
 
 # mongodb database config
 app.config["MONGODB_SETTINGS"] = {
