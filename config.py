@@ -24,8 +24,8 @@ bcrypt = Bcrypt(app)
 
 # mongodb database config
 app.config["MONGODB_SETTINGS"] = {
-    "host": os.getenv('MONDO_DB_HOST'),
-    "connect": os.getenv('DB_CONNECT')
+    "host": "mongodb://austino:hngi7task4@cluster0-shard-00-00-qht2p.mongodb.net:27017,cluster0-shard-00-01-qht2p.mongodb.net:27017,cluster0-shard-00-02-qht2p.mongodb.net:27017/MyCustomer?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
+    "connect": False
 }
 
 # initialize objects#
