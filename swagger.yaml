@@ -332,29 +332,29 @@ paths:
 #          description: "Customer not found"
 #        "405":
 #          description: "Validation exception"
-#  /customer/delete/{customerId}:
-#    delete:
-#      tags:
-#      - "Customer"
-#      summary: "Deletes a customer"
-#      description: ""
-#      operationId: "deleteCustomer"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - name: "customerId"
-#        in: "path"
-#        description: "Customer id to delete"
-#        required: true
-#        type: "integer"
-#        format: "int64"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Customer not found"
+  /customer/delete/{customerId}:
+    delete:
+      tags:
+      - "Customer"
+      summary: "Deletes a customer"
+      description: ""
+      operationId: "endpoints.customer.deletecustomer.delete"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "customerId"
+        in: "path"
+        description: "Customer id to delete"
+        required: true
+        type: "string"
+          #format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Customer not found"
   /customer/all:
    get:
      tags:
