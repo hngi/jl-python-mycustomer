@@ -13,8 +13,12 @@ connex_app = connexion.App(__name__, specification_dir=base_dir)
 app = connex_app.app
 
 
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-app.config["JWT_SECRET_KEY"] = os.getenv('JWT_SECRET_KEY')
+# app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+# app.config["JWT_SECRET_KEY"] = os.getenv('JWT_SECRET_KEY')
+
+
+app.config['SECRET_KEY'] = "hcdsfbhfTHIS_IS_TO_AVOID_SERVER_BREAK"
+app.config["JWT_SECRET_KEY"] = "hcdsfbhfTHIS_IS_TO_AVOID_SERVER_BREAKDDDD"
 
 
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True

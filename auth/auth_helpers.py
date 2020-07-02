@@ -21,7 +21,7 @@ def token_required(f):
         if not token:
             return jsonify({'message': 'UNAUTHORIZED ACCESS. TOKEN REQUIRED!'}), 401
         try:
-            data = jwt.decode(token, os.getenv('JWT_SECRET_KEY'))
+            data = jwt.decode(token, app.config['JWT_SECRET_KEY'])
             current_user = User.objects.get(id=data["id"])
         except:
             return jsonify({'message': 'INVALID TOKEN!'}), 401
@@ -53,7 +53,7 @@ def authVerify():
                 'iat': datetime.datetime.utcnow(),
                 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
                 }) #60mins logged on session
-            token = jwt.encode(payload, key=os.getenv('JWT_SECRET_KEY')).decode('UTF-8')
+            token = jwt.encode(payload, key=app.config['JWT_SECRET_KEY']).decode('UTF-8')
             user._set_user_token(token)
             return jsonify({
                 'token':token,
