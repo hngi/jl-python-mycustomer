@@ -266,8 +266,12 @@ paths:
          description: "Successful operation"
          schema:
            $ref: "#/definitions/Customer"
+       "403":
+         description: "Phone number already registered"
        "405":
          description: "Invalid input"
+       "500":
+         description: "Server error"
   /customer/{customerId}:
    get:
      tags:
@@ -876,7 +880,7 @@ definitions:
       description:
         type: "string"
       customer_phone_number:
-        type: "number"
+        type: "string"
       store_name:
         type: "string"
       transaction_name:

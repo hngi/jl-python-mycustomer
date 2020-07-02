@@ -27,9 +27,9 @@ class Customer(db.Document):
         handles time attribute(updated_at) ONLY when customer detail is modified
     """
 
-    store_ref_id = db.ReferenceField(store.Store, dbref=True, required=True)
+    # store_ref_id = db.ReferenceField(store.Store, dbref=True, required=True)
     name = db.StringField(required=True)
-    phone_number = db.StringField(required=True)
+    phone_number = db.StringField(required=True, unique=True)
     created_at = db.DateTimeField(default=datetime.datetime.utcnow)
     updated_at = db.DateTimeField(default=datetime.datetime.utcnow)
 
