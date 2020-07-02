@@ -1,6 +1,6 @@
-
 from models.store import Store
 from models.user_store import UserStore
+from flask import jsonify
 
 
 def delete(storeId):
@@ -17,4 +17,4 @@ def delete(storeId):
 
     store.delete()
 
-    return {"status": "OK"}, 200
+    return jsonify({"status": "success", 'message': 'Store deleted successfully'}), 200
