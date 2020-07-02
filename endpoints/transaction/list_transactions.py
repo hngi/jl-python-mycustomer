@@ -3,5 +3,5 @@ from models.transaction import Transaction
 
 
 def get():
-    json_transaction_list = Transaction.objects.all().to_json()
+    json_transaction_list = Transaction.objects.all()
     return jsonify(json_transaction_list)

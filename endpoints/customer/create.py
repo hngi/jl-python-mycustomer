@@ -1,15 +1,16 @@
-from flask import jsonify, request
+from flask import jsonify
+from mongoengine import NotUniqueError
 from models.customer import Customer
 
-def post():
-    data = request.get_json()
-    if data:
-        new_customer = {
-            'name': data['name'],
-            'phone_number': data['phone']
-        }
+
+def post(body):
     try:
-        new_customer = Customer(**new_customer).save()
+        body['phone_number'] = body.pop('phone')
+        new_customer = Customer(**body).save()
+    except NotUniqueError:
+        return jsonify({'status': 'failure', 'message': 'Phone number already registered'}), 403
+    except KeyError:
+        return jsonify({'status': 'failure', 'message': 'Phone number not supplied'}), 405
     except Exception as e:
-        return jsonify({'error_msg':"Invalid input"}), 405
+        return jsonify({'status': 'failure', 'message': 'Something went wrong while adding customer'}), 500
     return jsonify({'result': new_customer}), 201
