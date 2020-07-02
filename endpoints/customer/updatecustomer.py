@@ -16,7 +16,7 @@ def update(customerId):
     try:
         if Customer.objects(id=customerId).update_one(**value) == 0:
             return jsonify("Customer not found"), 404
-    except me.errors.ValidationError:
+    except (me.errors.ValidationError, me.errors.NotUniqueError):
         return jsonify("Validation exception"), 405
     return jsonify("Successful operation"), 200
 
