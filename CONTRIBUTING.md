@@ -61,7 +61,13 @@ See you in Stage 5
   ```cmd
   cd test\
   ```
-  - Now to run the Unittest scripts for the store endpoints, run the following:
+  To run all tests together, use:
+  ```cmd
+  python -m unittest
+  ```
+  
+  To run separately, if you so choose use the following
+  - To run the Unittest scripts for the store endpoints, run the following:
     
     ```cmd
       python -m unittest test_store_endpoint.py
