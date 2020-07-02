@@ -1,7 +1,7 @@
 import datetime
 from config import db
 from mongoengine import signals
-from models import user, user_store, customer,store
+from models import user, user_store, customer, store
 
 class Transaction(db.Document):
     """
@@ -33,7 +33,7 @@ class Transaction(db.Document):
         handles time attribute(updated_at) ONLY when transaction is modified
     """
 
-    customer_ref_id =  db.ReferenceField(customer.Customer, required=True, dbref=True)
+    customer_ref_id = db.ReferenceField(customer.Customer, required=True, dbref=True)
     amount = db.FloatField(required=True)
     interest = db.FloatField(required=True)
     total_amount = db.FloatField(required=True)
@@ -54,8 +54,5 @@ class Transaction(db.Document):
     def __str__(self):
         return "<Transaction Details: {}-{} by {} at {}>".format(self.transaction_name, self.transaction_role, self.user_ref_id, self.created_at)
 
-    
 
 signals.pre_save.connect(Transaction.pre_save, sender=Transaction)
-
-    
