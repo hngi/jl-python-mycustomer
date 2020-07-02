@@ -164,6 +164,32 @@ paths:
            $ref: "#/definitions/Transaction"
        "405":
          description: "Invalid input"
+  /transaction/{transactionId}:
+   get:
+     tags:
+     - "Transaction"
+     summary: "Find transaction by ID"
+     description: "Returns a single transaction"
+     operationId: "endpoints.transaction.get_transaction.getTransaction"
+     produces:
+     - "application/json"
+     parameters:
+     - name: "transactionId"
+       in: "path"
+       description: "ID of transaction to return"
+       required: true
+       type: "string"
+      #  format: "int64"
+     responses:
+       "200":
+         description: "Successful operation"
+         schema:
+           $ref: "#/definitions/Transaction"
+       "400":
+         description: "Invalid ID supplied"
+       "404":
+         description: "Transaction not found"
+
   /transaction/all:
     get:
       tags:
