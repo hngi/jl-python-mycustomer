@@ -15,7 +15,7 @@ def post(data):
         new_store = Store(**store).save()
     except NotUniqueError as e:
         return jsonify({'status': 'fail',
-                        'message': str(e), }), 403  # 'Store already exists'
+                        'message': 'Store already exists', }), 403
     except Exception as e:
         return jsonify({'message': str(e)}), 400
 
