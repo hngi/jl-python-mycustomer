@@ -8,8 +8,6 @@ info:
 basePath: /
 
 tags:
-  - name: "Notification"
-    description: "Everything about Notification"
   - name: "Transaction"
     description: "Everything about Transaction"
   - name: "Customer"
@@ -41,27 +39,27 @@ paths:
       responses:
         "302":
            description: "Found"
-  /call/{customer_phone_number}:
-    get:
-      tags:
-        - "Notification"
-      summary: ""
-      description: ""
-      operationId: endpoints.call.call.post
-      produces:
-      - "application/json"
-      parameters:
-      - name: "customer_phone_number"
-        in: "path"
-        description: "Customer id to call"
-        required: true
-        type: "string"
-        #format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "405":
-          description: "Invalid input"
+#  /call/{customer_phone_number}:
+#    get:
+#      tags:
+#        - "Notification"
+#      summary: ""
+#      description: ""
+#      operationId: endpoints.call.call.post
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "customer_phone_number"
+#        in: "path"
+#        description: "Customer id to call"
+#        required: true
+#        type: "string"
+#        #format: "int64"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#        "405":
+#          description: "Invalid input"
 
 #  /reminder/sms/{customerId}:
 #    post:
