@@ -55,8 +55,8 @@ paths:
         in: "path"
         description: "Customer id to call"
         required: true
-        type: "integer"
-        format: "int64"
+        type: "string"
+        #format: "int64"
       responses:
         "200":
           description: "Successful operation"
@@ -562,8 +562,8 @@ paths:
         in: "path"
         description: "ID of user to be updated"
         required: true
-        type: "integer"
-        format: "int64"
+        type: "string"
+        #format: "int64"
       - in: "body"
         name: "body"
         description: "User object that needs to be updated"
@@ -593,8 +593,8 @@ paths:
         in: "path"
         description: "User id to delete"
         required: true
-        type: "integer"
-        format: "int64"
+        type: "string"
+        #format: "int64"
       responses:
         "200":
           description: "Successful operation"
