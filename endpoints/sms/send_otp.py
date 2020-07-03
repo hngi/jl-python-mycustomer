@@ -10,7 +10,7 @@ def post(to,channel='sms'):
 	try:
 		service = client.verify.services.create(friendly_name='MyCustomer')
 		verification = client.verify \
-		            		 .services('Your service_sid') \
+		            		 .services('VA4ff03c64c0218ad19431a8594bc923bc') \
 		                     .verifications \
 		                     .create(to=to, channel=channel)
 
