@@ -4,7 +4,7 @@ from flask_mongoengine import mongoengine
 
 
 def update(userId):
-    if len(userID) ! =24:
+    if len(userID)!=24:
         return jsonify("Invalid ID given"), 400
     try:
         data = request.get_json()
