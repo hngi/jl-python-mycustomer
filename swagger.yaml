@@ -753,64 +753,64 @@ paths:
             $ref: "#/definitions/Complaint"
         "405":
           description: "Invalid input"
-#  /complaint/update/{complaintId}:
-#    put:
-#      tags:
-#      - "Complaint"
-#      summary: "Update an existing complaint"
-#      description: ""
-#      operationId: "updateComplaint"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - name: "complaintId"
-#        in: "path"
-#        description: "ID of complaint to be updated"
-#        required: true
-#        type: "integer"
-#        format: "int64"
-#      - in: "body"
-#        name: "body"
-#        description: "Complaint object that needs to be updated"
-#        required: true
-#        schema:
-#          $ref: "#/definitions/Complaint"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            $ref: "#/definitions/Complaint"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "User not found"
-#        "405":
-#          description: "Validation exception"
-#  /complaint/delete/{complaintId}:
-#    delete:
-#      tags:
-#      - "Complaint"
-#      summary: "Deletes a Complaint"
-#      description: ""
-#      operationId: "deleteComplaint"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - name: "complaintId"
-#        in: "path"
-#        description: "Complaint id to delete"
-#        required: true
-#        type: "integer"
-#        format: "int64"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#        "400":
-#          description: "Invalid ID supplied"
-#        "404":
-#          description: "Customer not found"
+  /complaint/update/{complaintId}:
+    put:
+      tags:
+      - "Complaint"
+      summary: "Update an existing complaint"
+      description: ""
+      operationId: "endpoints.complaint.update.update"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "complaintId"
+        in: "path"
+        description: "ID of complaint to be updated"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Complaint object that needs to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Complaint"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Complaint"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Complaint ID not found"
+        "405":
+          description: "Validation exception"
+
+  /complaint/delete/{complaintId}:
+    delete:
+      tags:
+      - "Complaint"
+      summary: "Deletes a Complaint"
+      description: ""
+      operationId: "endpoints.complaint.delete.delete"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "complaintId"
+        in: "path"
+        description: "Complaint id to delete"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Complaint not found"
+          
   /complaint/all:
     get:
       tags:
