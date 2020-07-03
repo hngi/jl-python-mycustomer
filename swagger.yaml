@@ -559,40 +559,39 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "User not found"
-          
-  /user/update/{userId}:
-    put:
-      tags:
-      - "User"
-      summary: "Update an existing User"
-      description: "Updates a user by id, with key-value pairs"
-      operationId: "endpoints.user.updateuser.update"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "userId"
-        in: "path"
-        description: "ID of user to be updated"
-        required: true
-        type: "string"
-       # format: "int64"
-      - in: "body"
-        name: "body"
-        description: "User object that needs to be updated"
-        required: true
-        schema:
-          $ref: "#/definitions/User"
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            $ref: "#/definitions/User"
-        "404":
-          description: "User not found"
-        "500":
-          description: "Server Error"
+#  /user/update/{userId}:
+#    put:
+#      tags:
+#      - "User"
+#      summary: "Update an existing User"
+#      description: "Updates a user by id, with key-value pairs"
+#      operationId: "updateUser"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "userId"
+#        in: "path"
+#        description: "ID of user to be updated"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: "User object that needs to be updated"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/User"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/User"
+#        "404":
+#          description: "User not found"
+#        "500":
+#          description: "Server Error"
 #  /user/delete/{userId}:
 #    delete:
 #      tags:
