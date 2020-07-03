@@ -24,7 +24,6 @@ tags:
     description: "Everything about Complaint"
   - name: "Redirect"
     description: "Redirect user"
- 
 #
 #schemes:
 #  - "https"
@@ -41,28 +40,42 @@ paths:
       responses:
         "302":
            description: "Found"
-  /call/{customer_phone_number}:
-    get:
-      tags:
-        - "Notification"
-      summary: ""
-      description: ""
-      operationId: endpoints.call.call.post
-      produces:
-      - "application/json"
-      parameters:
-      - name: "customer_phone_number"
-        in: "path"
-        description: "Customer id to call"
-        required: true
-        type: "string"
-        #format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "405":
-          description: "Invalid input"
-
+#  /call/{customerId}:
+#    post:
+#      tags:
+#        - Notification
+#      summary: ""
+#      description: ""
+#      operationId: "call"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "customerId"
+#        in: "path"
+#        description: "Customer id to call"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: ""
+#        required: true
+#        schema:
+#          type: "object"
+#          required:
+#          - "number"
+#          properties:
+#            number:
+#              type: "string"
+#              example: "+23480000000"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#        "405":
+#          description: "Invalid input"
+#
 #  /reminder/sms/{customerId}:
 #    post:
 #      tags:
@@ -546,62 +559,62 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "User not found"
-  /user/update/{userId}:
-    put:
-      tags:
-      - "User"
-      summary: "Update an existing User"
-      description: "Updates a user by id, with key-value pairs"
-      operationId: endpoints.user.update_user.update
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "userId"
-        in: "path"
-        description: "ID of user to be updated"
-        required: true
-        type: "string"
-        #format: "int64"
-      - in: "body"
-        name: "body"
-        description: "User object that needs to be updated"
-        required: true
-        schema:
-          $ref: "#/definitions/User"
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            $ref: "#/definitions/User"
-        "404":
-          description: "User not found"
-        "500":
-          description: "Server Error"
-  /user/delete/{userId}:
-    delete:
-      tags:
-      - "User"
-      summary: "Deletes a User"
-      description: ""
-      operationId: endpoints.user.delete_user.delete
-      produces:
-      - "application/json"
-      parameters:
-      - name: "userId"
-        in: "path"
-        description: "User id to delete"
-        required: true
-        type: "string"
-        #format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Customer not found"
+#  /user/update/{userId}:
+#    put:
+#      tags:
+#      - "User"
+#      summary: "Update an existing User"
+#      description: "Updates a user by id, with key-value pairs"
+#      operationId: "updateUser"
+#      consumes:
+#      - "application/json"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "userId"
+#        in: "path"
+#        description: "ID of user to be updated"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      - in: "body"
+#        name: "body"
+#        description: "User object that needs to be updated"
+#        required: true
+#        schema:
+#          $ref: "#/definitions/User"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#          schema:
+#            $ref: "#/definitions/User"
+#        "404":
+#          description: "User not found"
+#        "500":
+#          description: "Server Error"
+#  /user/delete/{userId}:
+#    delete:
+#      tags:
+#      - "User"
+#      summary: "Deletes a User"
+#      description: ""
+#      operationId: "deleteUser"
+#      produces:
+#      - "application/json"
+#      parameters:
+#      - name: "userId"
+#        in: "path"
+#        description: "User id to delete"
+#        required: true
+#        type: "integer"
+#        format: "int64"
+#      responses:
+#        "200":
+#          description: "Successful operation"
+#        "400":
+#          description: "Invalid ID supplied"
+#        "404":
+#          description: "Customer not found"
 
   /user/all:
     get:
