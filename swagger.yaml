@@ -883,6 +883,7 @@ definitions:
         type: "string"
       store_name:
         type: "string"
+        example: "TEST_SHOP_NAME"
       transaction_name:
         type: "string"
       transaction_role:
