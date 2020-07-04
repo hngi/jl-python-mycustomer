@@ -8,8 +8,6 @@ info:
 basePath: /
 
 tags:
-  - name: "Notification"
-    description: "Everything about Notification"
   - name: "Transaction"
     description: "Everything about Transaction"
   - name: "Customer"
@@ -40,6 +38,7 @@ paths:
       responses:
         "302":
            description: "Found"
+
 #  /call/{customerId}:
 #    post:
 #      tags:
@@ -76,6 +75,7 @@ paths:
 #        "405":
 #          description: "Invalid input"
 #
+
 #  /reminder/sms/{customerId}:
 #    post:
 #      tags:
