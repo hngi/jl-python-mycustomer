@@ -684,41 +684,41 @@ paths:
 #          description: "Successful operation"
 #        "405":
 #          description: "Invalid input"
-#  /auth/verify:
-#    post:
-#      tags:
-#      - "Authentication"
-#      summary: "Verify token"
-#      description: ""
-#      operationId: "authVerify"
-#      consumes:
-#      - "application/json"
-#      produces:
-#      - "application/json"
-#      parameters:
-#      - in: "body"
-#        name: "body"
-#        description: "UserSignUp object that needs to be registered"
-#        required: true
-#        schema:
-#          type: "object"
-#          properties:
-#            id:
-#              type: "string"
-#            token:
-#              type: "string"
-#      responses:
-#        "200":
-#          description: "Successful operation"
-#          schema:
-#            type: "object"
-#            properties:
-#              status:
-#                type: "string"
-#              message:
-#                type: "string"
-#        "405":
-#          description: "Invalid input"
+  /auth/verify:
+   post:
+     tags:
+     - "Authentication"
+     summary: "Verify token"
+     description: ""
+     operationId: "auth.auth_helpers.authVerify"
+     consumes:
+     - "application/json"
+     produces:
+     - "application/json"
+     parameters:
+     - in: "body"
+       name: "body"
+       description: "UserSignUp object that needs to be registered"
+       required: true
+       schema:
+         type: "object"
+         properties:
+           id:
+             type: "string"
+           token:
+             type: "string"
+     responses:
+       "200":
+         description: "Successful operation"
+         schema:
+           type: "object"
+           properties:
+             status:
+               type: "string"
+             message:
+               type: "string"
+       "405":
+         description: "Invalid input"
 #  /auth/verify-phone:
 #    post:
 #      tags:

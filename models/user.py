@@ -1,6 +1,5 @@
 import datetime
-
-from config import db
+from config import db, bcrypt
 
 
 class User(db.Document):
@@ -13,6 +12,15 @@ class User(db.Document):
     api_token = db.StringField()
     user_role = db.StringField(default="store_admin")
     reg_date = db.DateTimeField(default=datetime.datetime.utcnow)
+
+    #hash password and return
+    def hash_password(self):
+        self.password = bcrypt.generate_password_hash(self.password).decode('utf-8')
+        return self.password
+
+    def _set_user_token(self, token):
+        self.api_token = token
+
 
     def __str__(self):
         return "<User: {}>".format(self.first_name)

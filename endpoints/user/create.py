@@ -1,8 +1,9 @@
 from mongoengine import NotUniqueError
 from models.user import User
 from flask import jsonify
+from auth.auth_helpers import token_required
 
-
+@token_required
 def post(body):
     """
     POST response method for creating user.
