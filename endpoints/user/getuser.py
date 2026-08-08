@@ -2,7 +2,9 @@
 
 from models.user import User
 from flask import jsonify
+from auth.auth_helpers import token_required
 
+@token_required
 def getuser(userId):
     #Gets an userId or throws a 404 error message!
     user = User.objects.get_or_404(id=userId)
